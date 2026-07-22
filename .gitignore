@@ -1,0 +1,4 @@
+.probe
+*.lock
+.DS_Store
+Thumbs.db
