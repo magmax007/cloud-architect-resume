@@ -4,7 +4,23 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AWILI — The Cloud Architect · Vol. 2026</title>
-<meta name="description" content="Magnim Maxime AWILI — Technical Lead &amp; Cloud Architect. An interactive shonen-manga résumé.">
+<meta name="description" content="Magnim Maxime AWILI — Technical Lead &amp; Cloud Architect. An interactive shonen-manga résumé with a playable mini-game.">
+<link rel="canonical" href="https://magmax.space/">
+<meta name="theme-color" content="#e0231b">
+<!-- Open Graph / social preview -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="AWILI · The Cloud Architect">
+<meta property="og:title" content="Zero Downtime — The Cloud Architect · Vol. 2026">
+<meta property="og:description" content="An interactive shonen-manga résumé with a playable mini-game. Keep the payment realm at 100% uptime — then beat my score.">
+<meta property="og:url" content="https://magmax.space/">
+<meta property="og:image" content="https://magmax.space/og-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Zero Downtime — the interactive résumé of Magnim Maxime AWILI, Cloud Architect.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Zero Downtime — The Cloud Architect · Vol. 2026">
+<meta name="twitter:description" content="An interactive manga résumé with a playable mini-game. Beat my uptime → magmax.space">
+<meta name="twitter:image" content="https://magmax.space/og-cover.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Bangers&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
@@ -718,7 +734,7 @@ section,header,footer{position:relative;z-index:1}
       <div class="score-big">SCORE <span id="scOver">0</span></div>
       <div class="recbadge" id="recOver" style="display:none">★ NEW RECORD ★</div>
       <div class="gsub">Best: <b id="bestOver">0</b> · Reached: <b id="chOver">—</b></div>
-      <div class="gbtns"><button class="gbig" id="gRetry">↻ RETRY</button><button class="gbig alt" id="gExit2">EXIT</button></div>
+      <div class="gbtns"><button class="gbig" id="gRetry">↻ RETRY</button><button class="gbig alt" id="gShare">↗ SHARE</button><button class="gbig alt" id="gExit2">EXIT</button></div>
     </div>
   </div>
 
@@ -902,6 +918,15 @@ section,header,footer{position:relative;z-index:1}
   function gameOver(){ state='over'; score=Math.floor(score); var rec=score>best; if(rec){best=score; try{localStorage.setItem('awili_zd_best',String(best));}catch(e){}} set('scOver',score); set('bestOver',best); set('chOver', endless?'∞ ENDLESS':lastChapter); var rb=document.getElementById('recOver'); if(rb) rb.style.display=rec?'inline-block':'none'; if(rec) confetti(); showScreen('gOver'); }
   function win(){ if(state==='win') return; state='win'; score=Math.floor(score+uptime*4); if(score>best){best=score; try{localStorage.setItem('awili_zd_best',String(best));}catch(e){}} set('scWin',score); set('bestWin',best); showScreen('gWin'); }
   function set(id,v){ var el=document.getElementById(id); if(el) el.textContent=v; }
+  function shareScore(){
+    var msg='I scored '+Math.floor(score)+' in ZERO DOWNTIME'+(endless?' and cleared the whole saga':'')+' — the playable résumé of Cloud Architect Maxime AWILI. Beat my score →';
+    var url='https://magmax.space';
+    if(navigator.share){ navigator.share({title:'Zero Downtime',text:msg,url:url}).catch(function(){}); return; }
+    var full=msg+' '+url, b=document.getElementById('gShare');
+    function done(){ if(b){ var o=b.textContent; b.textContent='✓ COPIED!'; setTimeout(function(){ b.textContent=o; },1600); } }
+    if(navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(full).then(done,function(){window.prompt('Copy your score:',full);}); }
+    else { window.prompt('Copy your score:',full); }
+  }
 
   function jump(){
     if(state!=='play') return;
@@ -1088,6 +1113,7 @@ section,header,footer{position:relative;z-index:1}
   bind('playCover',openGame); bind('playNav',openGame);
   bind('gExit',closeGame); bind('gExit2',closeGame); bind('gExit3',closeGame);
   bind('gStart',startRun); bind('gRetry',startRun); bind('gAgain',startRun); bind('gResume',resume);
+  bind('gShare',shareScore);
   var diffBtns=document.querySelectorAll('#diffSel .dbtn');
   Array.prototype.forEach.call(diffBtns,function(btn){
     btn.addEventListener('click',function(){
