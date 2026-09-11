@@ -14,6 +14,6 @@ An interactive, shonen-manga styled résumé for **Magnim Maxime AWILI** — Tec
 
 Just open `index.html` in any modern browser.
 
-The cover uses a manga architect avatar based on Maxime's description: West African, bald, bearded, and wearing glasses, with ink, screentone, a red scarf, and Strasbourg-inspired rooftops. The optimized WebP is approximately 619 KB; the original artwork, edited PNG, and generation prompts are retained in `assets/`.
+The cover uses an original manga architect avatar with ink, screentone, a red scarf, and Strasbourg-inspired rooftops. The optimized WebP is approximately 619 KB; the editable source is retained in `assets/`.
 
 Game controls: **Space / ↑ / W / tap** to jump, again in the air to double-jump, **P** to pause, **R** to restart, and **Esc** to return to the résumé. The game also pauses when the browser loses focus. All game artwork is drawn directly on canvas; no extra assets or dependencies are needed.
