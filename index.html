@@ -344,7 +344,148 @@ section,header,footer{position:relative;z-index:1}
 .mobhint{position:absolute;bottom:16px;left:0;right:0;text-align:center;z-index:3;font-weight:700;color:var(--gray);pointer-events:none;font-size:13px;display:none}
 @media(hover:none){.mobhint{display:block}}
 
+/* Paris edition — an illustrated, playable career postcard. */
+#game{--game-ink:#292638;--game-cream:#fff4df;background:#f6c9a0;color:var(--game-ink)}
+#game button:focus-visible{outline:3px solid #348e9b;outline-offset:5px}
+.gexit{top:max(20px,env(safe-area-inset-top));right:24px;background:#fff4df;color:#292638;border:1px solid #292638;box-shadow:3px 3px 0 #292638;font-size:12px;padding:9px 14px}
+.gpause{right:143px;display:none}
+#game[data-state="play"] .gpause{display:block}
+.gscreen{padding:76px 28px 40px;background:rgba(41,38,56,.12);overflow-y:auto}
+.gcard{background:#fff4df;border:1px solid #292638;box-shadow:8px 8px 0 rgba(41,38,56,.85);padding:32px;max-width:510px}
+.gcard .kana{font-size:10px;letter-spacing:2.5px;color:#ad493b}
+.gcard h2{font-size:60px;letter-spacing:-1px;line-height:1.02;margin:16px 0}
+.gcard h2 span{color:#c34f40;-webkit-text-stroke:0}
+.gcard p{font-size:14px;line-height:1.75}
+#gReady{justify-content:flex-start;padding-left:max(5vw,28px);background:linear-gradient(90deg,rgba(41,38,56,.12),transparent 75%)}
+#gReady .gcard{text-align:left;max-width:460px}
+.gedition{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #d7c7b5;padding-bottom:15px;font-size:10px;letter-spacing:2px;font-weight:900}
+.gflag{display:inline-flex;width:27px;height:15px;background:linear-gradient(90deg,#465e82 33.33%,#fff4df 33.33% 66.66%,#c34f40 66.66%);border:1px solid #29263833}
+.gsubtitle{font-family:var(--font-sfx);font-size:28px;color:#aa5146;transform:rotate(-3deg);margin:-8px 0 16px}
+.groute{display:flex;justify-content:space-between;position:relative;margin:24px 0 20px;padding-top:12px;border-top:1px solid #b8a08c}
+.groute span{position:relative;font-size:9px;color:#746b71;line-height:1.6}
+.groute span::before{content:'';position:absolute;top:-16px;left:0;width:7px;height:7px;background:#c34f40;border-radius:50%}
+.groute b{display:block;font-size:11px;color:#292638}
+.keys{gap:6px;justify-content:flex-start;margin:18px 0}
+.key{border:1px solid #dbccba;background:transparent;box-shadow:none;padding:5px 8px;font-size:10px}
+.diffsel{justify-content:flex-start;gap:8px}
+.dbtn{border:1px solid #c9b6a4;box-shadow:none;background:transparent;font-family:var(--font-body);font-weight:700;font-size:11px;padding:7px 14px}
+.dbtn.active{background:#292638;color:#fff4df;border-color:#292638}
+.glaunch{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:22px}
+.gbig{border:1px solid #292638;background:#c34f40;box-shadow:4px 4px 0 #292638;font-size:16px;padding:12px 24px}
+.gbig.alt{background:#fff4df}
+.gsub{font-size:10px;letter-spacing:1px;color:#786c71}
+.gpostmark{position:absolute;right:7%;top:23%;text-align:center;color:#554958;transform:rotate(7deg);pointer-events:none;border:1px solid #79607577;border-radius:50%;width:134px;height:134px;display:grid;align-content:center;gap:4px;font-size:9px;letter-spacing:3px}
+.gpostmark strong{font-family:var(--font-head);font-size:34px;font-weight:400;letter-spacing:2px}
+.gcredit{position:absolute;bottom:24px;left:5%;font-size:10px;letter-spacing:2px;color:#fff4df;pointer-events:none}
+.mobhint{color:#fff4df;font-size:11px;bottom:max(18px,env(safe-area-inset-bottom))}
+#game:not([data-state="ready"]) .gpostmark,#game:not([data-state="ready"]) .gcredit{display:none}
+#game:not([data-state="play"]) .mobhint{display:none}
+@media(max-width:700px){
+  #gReady{padding:76px 18px 30px;justify-content:center;align-items:safe center}
+  #gReady .gcard{max-width:410px;padding:24px}
+  .gcard h2{font-size:48px;margin:12px 0}
+  .gcard p{font-size:12px}.gsubtitle{font-size:24px}.groute{margin:20px 0 16px}
+  .gpostmark,.gcredit{display:none}.gexit{right:18px}.gpause{right:130px}
+  .gscreen{align-items:safe center}.glaunch{margin-top:18px}.gcard{padding:24px}
+}
+@media(max-height:640px) and (min-width:701px){
+  #gReady .gcard{max-width:590px;padding:20px 28px}.gcard h2{font-size:44px;margin:8px 0}
+  .groute{margin:16px 0 12px}.keys{margin:12px 0}.glaunch{margin-top:12px}.gsubtitle{margin-bottom:8px}
+}
+
+/* The résumé reads as a printed manga volume; the game keeps its own palette. */
+section[id],footer[id]{scroll-margin-top:90px}
+.cover{min-height:0;padding:112px 24px 28px;background:var(--paper);text-align:left;overflow:visible}
+.coverInner{display:grid;grid-template-columns:1.06fr 1fr;max-width:1120px;width:100%;background:var(--panel);border:3px solid var(--ink);box-shadow:9px 9px 0 var(--ink)}
+.issueLine{grid-column:1/-1;display:flex;justify-content:space-between;gap:16px;padding:12px 22px;border-bottom:3px solid var(--ink);font-size:11px;letter-spacing:2px;font-weight:900}
+.issueLine b{color:var(--red);padding:0 5px}
+.coverCopy{padding:36px 36px 30px;align-self:center;min-width:0}
+.series{color:var(--ink);text-shadow:none;animation:none;font-size:clamp(64px,7.4vw,94px);letter-spacing:-2px;line-height:1.02;margin:18px 0 30px}
+.series span{color:var(--red)}
+.seriesKana{font-size:11px;letter-spacing:4px;color:#706657}
+.coverByline{font-size:10px;font-weight:900;letter-spacing:3px;color:#746957}
+.heroName{font-size:28px;line-height:1.2;margin:7px 0 12px;letter-spacing:.2px}
+.heroName span{color:var(--ink)}
+.heroRole{font-size:13px;line-height:1.8;letter-spacing:0}
+.tagline{font-family:var(--font-sfx);font-size:26px;font-style:normal;line-height:1.25;margin:28px 0 0;transform:rotate(-2deg)}
+.cover .cta{justify-content:flex-start;gap:12px;margin-top:28px}
+.cover .cta .btn{font-size:13px;padding:12px 14px;text-decoration:none}
+.coverNote{font-size:10px;color:#756b5c;margin-top:20px;letter-spacing:.3px}
+.coverArt{position:relative;grid-column:2;grid-row:2/4;margin:0;border-left:3px solid var(--ink);overflow:hidden;min-height:600px;background:var(--paper2)}
+.coverArt>img{display:block;width:100%;height:100%;position:absolute;inset:0;object-fit:cover;object-position:center 35%}
+.artLabel{position:absolute;top:20px;left:20px;background:var(--panel);border:2px solid var(--ink);padding:7px 10px;font-size:10px;letter-spacing:1.5px;font-weight:900;transform:rotate(-3deg)}
+.speech{position:absolute;bottom:56px;left:22px;border:3px solid var(--ink);border-radius:50%;background:var(--panel);padding:22px 30px;font-family:var(--font-sfx);font-size:25px;text-align:center;line-height:1.15;transform:rotate(-7deg);box-shadow:4px 5px 0 rgba(21,18,13,.35)}
+.speech::after{content:'';position:absolute;right:2px;top:-15px;width:22px;height:34px;background:var(--panel);border-top:3px solid var(--ink);border-right:3px solid var(--ink);transform:skewY(-40deg) rotate(-12deg)}
+.speech b{font-weight:400;color:var(--red)}
+.coverArt figcaption{position:absolute;bottom:0;left:0;right:0;padding:8px 12px;background:var(--ink);color:var(--paper);font-size:9px;letter-spacing:1.5px;text-transform:uppercase;text-align:center}
+.coverFacts{display:grid;grid-template-columns:repeat(3,1fr);border-top:3px solid var(--ink);padding:18px 12px;gap:10px;background:var(--paper2)}
+.coverFacts>div{display:flex;flex-direction:column;align-items:center;border-right:1px solid #c3b8a4;gap:4px;text-align:center}
+.coverFacts>div:last-child{border:0}.coverFacts strong{font-family:var(--font-head);font-weight:400;font-size:28px;line-height:1.1}.coverFacts span{font-size:8px;letter-spacing:1px;font-weight:900}
+.pageFoot{display:flex;justify-content:space-between;gap:16px;width:100%;max-width:1120px;font-size:9px;letter-spacing:1.5px;font-weight:700;margin-top:24px;color:#746957}
+.coldOpen{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin:24px auto 10px;max-width:1160px}
+.coldPanel{position:relative;border:3px solid var(--ink);background:var(--panel);min-width:0;overflow:hidden;min-height:237px;padding:18px}
+.narration{display:inline-block;position:relative;z-index:2;font-size:9px;letter-spacing:.8px;font-weight:900;background:var(--gold);border:1px solid var(--ink);padding:5px 8px;max-width:100%}
+.coldPanel p{position:relative;z-index:2;font-family:var(--font-sfx);font-size:24px;line-height:1.25;margin:14px 0 0}.coldPanel p b{font-weight:400}
+.panelPage{position:absolute;bottom:8px;right:12px;font-family:var(--font-head);font-size:15px;color:#81786a}
+.terminalArt{margin-top:16px;background:var(--ink);color:var(--paper);padding:8px 12px;transform:rotate(-2deg);box-shadow:4px 4px 0 #bdb3a0}
+.terminalArt>span{display:block;font-size:8px;letter-spacing:2px;color:var(--red);padding-bottom:4px;border-bottom:1px solid #59534a}
+.terminalArt code{display:block;margin-top:7px;font-size:11px;line-height:1.6}.terminalArt b{color:#f2b705;font-weight:400}
+.systemsPanel{background-image:radial-gradient(#15120d20 1px,transparent 1px);background-size:5px 5px}
+.systemsArt{display:flex;align-items:center;gap:8px;margin:27px 0 24px}.systemsArt span{border:2px solid var(--ink);padding:8px;background:var(--panel);font-family:var(--font-head);font-size:16px;box-shadow:3px 3px 0 var(--ink)}.systemsArt i{font-style:normal;color:var(--red)}
+.nowPanel{background:var(--ink);color:var(--paper)}.nowPanel .narration{color:var(--ink)}.nowPanel p{margin-top:82px;text-shadow:2px 2px 0 var(--ink)}
+.miniPortrait{position:absolute;inset:0;background:linear-gradient(0deg,#15120d 5%,transparent 85%),url('assets/cloud-architect-manga-v2.webp') center 18%/cover;opacity:.75}
+.chapter{padding:62px 0 20px}
+.chead{border-top:2px solid var(--ink);padding-top:18px;margin-bottom:26px}
+.chNum{font-size:11px;letter-spacing:2px}.chTitle{font-size:clamp(34px,5.4vw,60px);margin-top:8px}.chSub{font-size:11px;letter-spacing:.7px;margin-top:12px;color:#726958}
+.panel{box-shadow:5px 5px 0 var(--ink);padding:30px}.panel:hover,.panel:hover:not(.noh){transform:none;box-shadow:5px 5px 0 var(--ink)}
+.panel .cnr{font-size:9px;letter-spacing:1.5px;top:10px;right:14px}
+.bioLead{font-family:var(--font-head);text-transform:uppercase;font-size:36px;line-height:1.08;margin:0 0 22px}.bioLead span{color:var(--red)}
+.bio p{font-size:14px;line-height:1.9}.statList{gap:16px;margin-top:8px}.statList li{padding-bottom:10px}.statList b{font-size:11px}.statList span{font-size:13px}
+#hero .noh{background:var(--paper2)}
+#powers .gaugeRow{display:grid;grid-template-columns:1fr 1fr;gap:24px 34px}
+#powers .gauge{padding-bottom:16px;border-bottom:1px solid #d7cdbb}
+.gauge .lab b{font-size:16px}.gauge .lab .kana{display:none}.track{height:12px;border-width:2px}
+.techDesc{font-size:12px;line-height:1.6;margin:10px 0 0;color:#6c6253}
+.tags{gap:6px}.tag{font-size:11px;padding:4px 8px;border-width:1px}
+.storyGrid{display:grid;grid-template-columns:1fr 1fr;gap:24px}.storyGrid>.arc{margin:0;min-width:0}.storyGrid>.arc>.panel{height:100%}
+.storyGrid>.arc:nth-child(n+3){grid-column:1/-1}
+.arcHead{gap:16px;align-items:center;margin:8px 0 14px}.arcNo{font-family:var(--font-sfx);font-size:44px;-webkit-text-stroke:0;color:var(--red);min-width:42px}
+.arcTitle{font-size:27px;line-height:1.15}.arcMeta{font-size:12px;gap:5px 14px;line-height:1.7;margin-bottom:20px}.arcMeta .role{flex-basis:100%}
+.arcNarration{font-family:var(--font-sfx);font-size:23px;line-height:1.4;background:var(--paper2);border-left:3px solid var(--red);padding:12px 16px;margin:12px 0 18px}
+.feat{font-size:14px;line-height:1.8;gap:8px}.feat li{padding-left:20px}.feat li::before{content:'↳';font-family:var(--font-body)}
+.storyGrid>.arc:nth-child(3) .feat{grid-template-columns:1fr 1fr;gap:12px 30px}
+.currentChapter{display:flex;justify-content:space-between;gap:12px;background:var(--red);color:white;margin:-30px -30px 24px;padding:12px 20px;font-size:11px;font-weight:900;letter-spacing:1.5px}
+.storyGrid>.arc:last-child .cnr{display:none}.storyGrid>.arc:last-child>.panel>p{font-size:15px;max-width:840px;line-height:1.9}
+.storyGrid>.arc:last-child .arcTitle{font-size:38px}.arcMeta .now{animation:none}.subGrid{gap:16px;margin-top:26px}.subArc{border:1px solid #c7bdab;padding:20px;margin:0;background:var(--paper)}
+.subArc h4{font-size:16px;margin-bottom:8px}.subArc .feat{font-size:13px}.sfx{display:none}
+#training .panel{border-top:8px solid var(--ink)}
+#extras{padding-bottom:72px}.quest b{font-size:16px}.quest small{font-size:12px}.scroll{box-shadow:3px 3px 0 var(--ink);border-width:2px}
+.tbc{padding:66px 24px 38px}.tbc .focus{display:none}.tbcKana{font-size:24px;letter-spacing:8px}.tbcTitle{font-size:clamp(40px,7vw,76px);margin:18px 0}.contacts{gap:10px}.contacts a{font-size:12px;max-width:100%;overflow-wrap:anywhere}.tbcSub{font-size:14px;line-height:1.8}
+.plain .coverInner{display:block;max-width:1080px;border:0;box-shadow:none;background:white}.plain .coverCopy{padding:0}.plain .cover{text-align:left;padding-top:104px}
+.plain .coverArt,.plain .coverFacts,.plain .issueLine,.plain .coverByline,.plain .coverNote,.plain .pageFoot,.plain .coldOpen,.plain .bioLead{display:none}
+.plain .series span{color:#111}.plain .tagline{font-family:var(--font-body);font-size:16px;transform:none}.plain .storyGrid{display:block}.plain .storyGrid>.arc{margin-bottom:24px}
+.plain .currentChapter{background:#eee;color:#111;margin:-18px -18px 18px}.plain .arcNarration{font-family:var(--font-body);font-size:14px;background:none;border:0;padding:0}.plain .subArc{background:white}
+.plain #hero .noh{background:white}.plain .chead{border:0}.plain .panel:hover{box-shadow:none}.plain .storyGrid>.arc:nth-child(3) .feat{grid-template-columns:1fr}
+.plain .cover .series,.plain .cover .tagline,.plain .cover .cta,.plain .chNum,.plain .panel .cnr{display:none}
+.plain .heroName{font-size:36px;margin-top:0}.plain .heroRole{font-size:15px}.plain .panel,.plain .panel:hover,.plain .panel:hover:not(.noh){box-shadow:none}.plain .chapter{padding-top:34px}.plain .chTitle{font-size:30px}.plain .chSub{display:none}
+@media(max-width:860px){
+  .cover{padding:94px 20px 20px}.coverCopy{padding:26px 24px}.series{font-size:64px}.coverArt{min-height:560px}.cover .cta{flex-direction:column;align-items:flex-start}.heroName{font-size:24px}
+  .coldOpen{grid-template-columns:1fr}.coldPanel{min-height:180px}.terminalArt{max-width:310px}.coldPanel p{font-size:25px}.nowPanel p{margin-top:68px}.miniPortrait{background-position:center 25%}
+  .panel{padding:24px}.currentChapter{margin:-24px -24px 22px}.storyGrid{gap:18px}.arcTitle{font-size:23px}.storyGrid>.arc:last-child .arcTitle{font-size:30px}
+}
+@media(max-width:600px){
+  .topbar{padding:10px 12px;gap:8px}.brand{font-size:18px}.brand .full{display:inline}.brand .kana,.brand>span:last-child,.brand>b{display:none}.tools{gap:6px}.tools .btn{padding:7px 8px;font-size:10px}.topbar .rmLabel{font-size:0}.topbar .rmLabel::after{content:'RECRUITER CV';font-size:10px}.plain .topbar .rmLabel::after{content:'MANGA MODE'}
+  .cover{padding:90px 18px 16px}.coverInner{grid-template-columns:1fr;box-shadow:5px 5px 0 var(--ink)}.issueLine{font-size:8px;letter-spacing:.8px;padding:10px 12px;gap:6px}
+  .coverCopy{padding:24px}.series{font-size:clamp(48px,13.6vw,74px);margin:14px 0 22px}.seriesKana{font-size:9px;letter-spacing:2px}.heroName{font-size:25px}.heroRole{font-size:12px}.tagline{font-size:24px;margin-top:22px}.cover .cta{flex-direction:row;gap:12px}.cover .cta .btn{font-size:11px;padding:10px 12px}.coverNote{font-size:9px}
+  .coverArt{grid-column:auto;grid-row:auto;border-left:0;border-top:3px solid var(--ink);min-height:430px}.coverArt>img{object-position:center 22%}.artLabel{display:none}.coverFacts{padding:16px 6px}.coverFacts span{font-size:7px}.coverFacts strong{font-size:25px}.speech{font-size:23px;padding:18px 24px;bottom:46px}.pageFoot{font-size:8px;letter-spacing:.6px}.pageFoot>span:first-child{display:none}
+  .coldOpen{margin-top:14px}.chapter{padding-top:42px}.chead{padding-top:16px}.chTitle{font-size:38px}.chNum{font-size:10px}.chSub{font-size:10px;line-height:1.7}
+  .panel{padding:22px}.bioLead{font-size:32px}.statList span{font-size:12px}.statList b{font-size:10px}.badgeRow{gap:7px}.badge{font-size:10px}
+  #powers .gaugeRow,.storyGrid{grid-template-columns:1fr}.gauge .lab b{font-size:15px}.storyGrid>.arc:nth-child(3) .feat{grid-template-columns:1fr}.arcTitle{font-size:26px}.currentChapter{margin:-22px -22px 20px;font-size:9px;letter-spacing:.7px}.subArc{padding:16px}.storyGrid>.arc:last-child .arcTitle{font-size:28px}
+  .tbcTitle{font-size:44px}.contacts{flex-direction:column;align-items:center}.contacts a{font-size:11px;padding:10px 12px}
+}
 @media print{
+  .coverArt,.coverFacts,.issueLine,.coverByline,.coverNote,.pageFoot,.coldOpen,.bioLead{display:none!important}
+  .coverInner,.storyGrid{display:block!important;border:0;box-shadow:none}.coverCopy{padding:0}.series{font-size:32px!important}.series span{color:#111}.heroName{font-size:24px}.heroRole{font-size:12px}.tagline{font-family:var(--font-body);font-size:14px;transform:none}.storyGrid>.arc{margin-bottom:20px}.chapter{padding-top:24px}.chTitle{font-size:28px}.currentChapter{margin:0;padding:8px;background:#eee;color:#111}.chead{border:0}.panel{padding:16px}.subArc{background:white}
   .topbar,.progress,#menu,.cta,.scrollHint,.focus,.sfx,.priceTag,.barcode,.special,.egg,#overtxt,#game{display:none!important}
   body{background:#fff;color:#000}
   body::before{display:none}
@@ -387,31 +528,52 @@ section,header,footer{position:relative;z-index:1}
 
 <!-- ===================== COVER ===================== -->
 <header class="cover" id="top">
-  <div class="focus"></div>
-  <div class="priceTag"><small>SHONEN</small><b>¥600</b><small>2026</small></div>
-  <div class="barcode"></div>
   <div class="coverInner">
-    <span class="volTag">WEEKLY CLOUD JUMP · <b>VOL. 2026</b></span>
-    <svg class="emblem" viewBox="0 0 200 170" role="img" aria-label="Hero emblem">
-      <circle class="aura fillred" cx="100" cy="82" r="70"/>
-      <path class="stroke" d="M60 96 a26 26 0 0 1 3 -51 a34 34 0 0 1 64 6 a24 24 0 0 1 -6 47 z"/>
-      <polygon class="stroke" points="100,50 121,62 121,86 100,98 79,86 79,62"/>
-      <path class="fillink" d="M104 60 l-16 22 h10 l-6 20 l18 -26 h-11 z"/>
-      <path class="stroke" d="M46 120 h108 M54 134 h92 M64 148 h72"/>
-    </svg>
-    <h1 class="series">The Cloud<br>Architect</h1>
-    <div class="seriesKana">クラウド・アーキテクト</div>
-    <h2 class="heroName">Magnim Maxime <span>AWILI</span></h2>
-    <div class="heroRole">Technical Lead · Cloud Architect · Platform &amp; AI Infrastructure</div>
-    <p class="tagline">"When the payment realm trembles and the systems threaten to fall… he is the one who keeps them standing. 9+ years. Zero downtime. One architect."</p>
-    <div class="cta">
-      <button class="btn play" id="playCover">▶ PLAY: ZERO DOWNTIME</button>
-      <a class="btn" href="#hero">START READING</a>
-      <button class="btn ghost rmToggle"><span class="rmLabel">Recruiter Mode</span></button>
+    <div class="issueLine"><span>AWILI <b> / </b> AN ENGINEER’S STORY</span><span>VOL. 2026 <b>·</b> READ ↓</span></div>
+    <div class="coverCopy">
+      <div class="seriesKana">クラウド・アーキテクト</div>
+      <h1 class="series">The Cloud<br><span>Architect.</span></h1>
+      <div class="coverByline">STARRING</div>
+      <h2 class="heroName">Magnim Maxime <span>AWILI</span></h2>
+      <div class="heroRole">Technical Lead · Cloud Architect<br>Platform &amp; AI Infrastructure</div>
+      <p class="tagline">Every great system has a story.<br>This is the engineer behind it.</p>
+      <div class="cta">
+        <a class="btn" href="#hero">READ MY STORY ↘</a>
+        <button class="btn play" id="playCover">▶ PLAY THE SIDE QUEST</button>
+      </div>
+      <div class="coverNote">A real career. A manga universe. A playable résumé.</div>
     </div>
+    <figure class="coverArt">
+      <img src="assets/cloud-architect-manga-v2.webp" width="1024" height="1536" fetchpriority="high" alt="A bald, bearded West African manga architect with glasses, a red scarf and a laptop, above Strasbourg rooftops and illustrated server towers.">
+      <span class="artLabel">THE PROTAGONIST / 01</span>
+      <div class="speech">The mission?<br><b>Keep it running.</b></div>
+      <figcaption>Original manga avatar · The Cloud Architect</figcaption>
+    </figure>
+    <div class="coverFacts"><div><strong>9+</strong><span>YEARS IN THE FIELD</span></div><div><strong>24/7</strong><span>MISSION-CRITICAL SYSTEMS</span></div><div><strong>FR</strong><span>SCHILTIGHEIM, FRANCE</span></div></div>
   </div>
-  <div class="scrollHint">▼ 目次 · SCROLL</div>
+  <div class="pageFoot"><span>ENGINEERING × CLOUD × A LITTLE SHONEN</span><span>THE STORY STARTS HERE ↓</span></div>
 </header>
+
+<section class="coldOpen wrap" aria-label="The story so far">
+  <div class="coldPanel originPanel">
+    <div class="narration">2015 / EVERY HERO STARTS SOMEWHERE.</div>
+    <div class="terminalArt" aria-hidden="true"><span>● ● ●</span><code>Java + DB2<br><b>&gt; hello, payment world_</b></code></div>
+    <p>First lines of code.<br><b>Real-world responsibility.</b></p>
+    <span class="panelPage">01</span>
+  </div>
+  <div class="coldPanel systemsPanel">
+    <div class="narration">THEN THE STAKES GET BIGGER.</div>
+    <div class="systemsArt" aria-hidden="true"><span>BUILD</span><i>→</i><span>SHIP</span><i>→</i><span>RUN</span></div>
+    <p>The payments never sleep.<br><b>Neither can the systems.</b></p>
+    <span class="panelPage">02</span>
+  </div>
+  <div class="coldPanel nowPanel">
+    <div class="narration">2020 → NOW / A NEW CHAPTER.</div>
+    <div class="miniPortrait" aria-hidden="true"></div>
+    <p>Build the cloud.<br><b>Bring the team with you.</b></p>
+    <span class="panelPage">03</span>
+  </div>
+</section>
 
 <!-- ===================== CHARACTER ===================== -->
 <section class="chapter" id="hero">
@@ -419,12 +581,12 @@ section,header,footer{position:relative;z-index:1}
     <div class="chead">
       <div class="chNum">キャラクター · FILE 00</div>
       <h2 class="chTitle">The <span class="u">Protagonist</span></h2>
-      <div class="chSub">Know your hero before the battle begins</div>
+      <div class="chSub">The person behind the platforms</div>
     </div>
     <div class="charWrap">
       <div class="panel bio">
         <span class="cnr">PANEL 01</span>
-        <span class="sfx" style="top:-26px;right:24px;--r:6deg">ドン!</span>
+        <div class="bioLead">Systems thinker.<br><span>Team builder.</span></div>
         <p><b>Magnim Maxime AWILI</b> is a Cloud Architect and Technical Lead with <b>9+ years</b> designing, deploying, and operating mission-critical platforms in the banking &amp; payment world.</p>
         <p>Master of cloud-native modernization, distributed systems, and DevOps automation, he leads technical initiatives from architecture design all the way through production deployment, rallying engineering teams, business stakeholders, and operations alike.</p>
         <p>Now channeling <b>GenAI</b> to accelerate software modernization and spread AI adoption across the engineering guilds.</p>
@@ -457,7 +619,7 @@ section,header,footer{position:relative;z-index:1}
     <div class="chead">
       <div class="chNum">必殺技 · SKILL TREE</div>
       <h2 class="chTitle">Powers &amp; <span class="u">Techniques</span></h2>
-      <div class="chSub">Mastery gauges — forged over nine years of battle</div>
+      <div class="chSub">The toolkit behind the story · Manga ranks, real engineering</div>
     </div>
     <div class="panel">
       <span class="cnr">TECHNIQUE SCROLL</span>
@@ -466,22 +628,27 @@ section,header,footer{position:relative;z-index:1}
         <div class="gauge">
           <div class="lab"><b>☁️ Cloud &amp; Infrastructure Arts</b><span><span class="kana">クラウド</span> <em>S+</em></span></div>
           <div class="track"><i style="--v:96%"></i></div>
+          <p class="techDesc">Private &amp; hybrid cloud · Kubernetes · Infrastructure design</p>
         </div>
         <div class="gauge">
           <div class="lab"><b>⚙️ Platform &amp; DevOps Jutsu</b><span><span class="kana">デブオプス</span> <em>S</em></span></div>
           <div class="track"><i style="--v:93%"></i></div>
+          <p class="techDesc">CI/CD · Ansible &amp; AWX · Repeatable deployments</p>
         </div>
         <div class="gauge">
           <div class="lab"><b>💻 Code Style</b><span><span class="kana">コード</span> <em>A+</em></span></div>
           <div class="track"><i style="--v:88%"></i></div>
+          <p class="techDesc">Java · Python · Go · Tooling that makes teams faster</p>
         </div>
         <div class="gauge">
           <div class="lab"><b>🗄️ Data &amp; Distributed Systems</b><span><span class="kana">データ</span> <em>S</em></span></div>
           <div class="track"><i style="--v:91%"></i></div>
+          <p class="techDesc">Kafka · SQL &amp; NoSQL · Critical platform services</p>
         </div>
         <div class="gauge">
           <div class="lab"><b>👑 Architecture &amp; Leadership</b><span><span class="kana">リーダー</span> <em>S+</em></span></div>
           <div class="track"><i style="--v:94%"></i></div>
+          <p class="techDesc">Technical direction · Mentoring · GenAI adoption</p>
         </div>
       </div>
       <div class="tags">
@@ -507,12 +674,13 @@ section,header,footer{position:relative;z-index:1}
       <div class="chSub">From origin rookie to the architect who holds up the realm — read in order</div>
     </div>
 
+    <div class="storyGrid">
     <div class="arc reveal">
       <div class="panel">
         <span class="cnr">第01話</span>
         <div class="arcHead"><span class="arcNo">01</span><h3 class="arcTitle">The Origin</h3></div>
         <div class="arcMeta"><span class="role">Developer · SOCIÉTÉ GÉNÉRALE</span><span>Sep 2015 – Feb 2016</span><span>Schiltigheim</span></div>
-        <p>Every hero has a beginning. Ours enters one of France's leading banking groups and takes his first steps into the payment realm.</p>
+        <p class="arcNarration">First assignment: enter the payment world.</p>
         <ul class="feat">
           <li>Built &amp; maintained <b>Java / DB2</b> tools powering payment-system parameter management.</li>
         </ul>
@@ -524,7 +692,7 @@ section,header,footer{position:relative;z-index:1}
         <span class="cnr">第02話</span>
         <div class="arcHead"><span class="arcNo">02</span><h3 class="arcTitle">The Apprentice</h3></div>
         <div class="arcMeta"><span class="role">Engineering Intern · SOPRA STERIA — TRANSACTIS</span><span>Sep 2016 – Feb 2017</span><span>Schiltigheim</span></div>
-        <p>The hero seeks a master and learns the arts of watching over living systems.</p>
+        <p class="arcNarration">A new skill unlocked: seeing trouble before it arrives.</p>
         <ul class="feat">
           <li>Forged <b>monitoring &amp; alerting</b> for payment-system domains using <b>TIBCO BW</b> and <b>Oracle</b>.</li>
         </ul>
@@ -537,7 +705,7 @@ section,header,footer{position:relative;z-index:1}
         <span class="sfx" style="top:-26px;right:30px;--r:7deg">ドドド</span>
         <div class="arcHead"><span class="arcNo">03</span><h3 class="arcTitle">Rise of the Engineer</h3></div>
         <div class="arcMeta"><span class="role">Software Engineer · SOPRA STERIA — TRANSACTIS</span><span>Apr 2017 – Jun 2020</span><span>Schiltigheim</span></div>
-        <p>Three years of relentless growth. The hero grows strong, survives the migration wars, and learns to keep the critical systems breathing without pause.</p>
+        <p class="arcNarration">The challenge: evolve the platform while the payments keep moving.</p>
         <ul class="feat">
           <li>Maintained &amp; evolved the overall technical architecture of enterprise applications.</li>
           <li>Built automation tools for deployment, integration &amp; monitoring with <b>Java, Oracle, TIBCO</b>.</li>
@@ -551,14 +719,14 @@ section,header,footer{position:relative;z-index:1}
     <div class="arc reveal">
       <div class="panel">
         <span class="cnr">第04話</span>
-        <span class="special">NEW ARC · ONGOING</span>
+        <div class="currentChapter">THE CURRENT CHAPTER <span>2020 → NOW</span></div>
         <span class="sfx" style="bottom:10px;right:16px;--r:-10deg">ゴゴゴ</span>
         <div class="arcHead"><span class="arcNo">04</span><h3 class="arcTitle">The Cloud Architect</h3></div>
         <div class="arcMeta">
           <span class="role">Technical Lead / Cloud Architect · TRANSACTIS</span>
           <span>Jul 2020 – <b>NOW</b></span><span class="now">ONGOING</span><span>Schiltigheim</span>
         </div>
-        <p>The grand current saga. Transactis — subsidiary of <b>Société Générale</b> &amp; <b>La Banque Postale</b>, specialists in real-time payment processing — and our hero now holds the architecture of it on his shoulders, as Technical Lead across <b>Payments, Digital Services &amp; ATM</b>.</p>
+        <p>At <b>Transactis</b>, a subsidiary of Société Générale &amp; La Banque Postale, Maxime leads technical initiatives across <b>Payments, Digital Services &amp; ATM</b> — from architecture decisions to the platforms running in production.</p>
 
         <div class="subGrid">
           <div class="subArc"><h4>⚡ AI &amp; Innovation</h4>
@@ -606,6 +774,7 @@ section,header,footer{position:relative;z-index:1}
         </div>
       </div>
     </div>
+  </div>
   </div>
 </section>
 
@@ -701,25 +870,32 @@ section,header,footer{position:relative;z-index:1}
 </footer>
 
 <!-- ===================== GAME MODE : ZERO DOWNTIME ===================== -->
-<div id="game" aria-hidden="true">
-  <canvas id="gcanvas"></canvas>
-  <button class="gexit" id="gExit">✕ EXIT</button>
-  <div class="mobhint">TAP anywhere to jump · double-tap to double-jump</div>
+<div id="game" role="dialog" aria-modal="true" aria-label="Zero Downtime: Paris run" aria-hidden="true" data-state="ready">
+  <canvas id="gcanvas" aria-label="Run across Paris, jump over monuments and collect technologies from Maxime's career."></canvas>
+  <button class="gexit gpause" id="gPauseBtn">Ⅱ PAUSE</button>
+  <button class="gexit" id="gExit">✕ BACK TO CV</button>
+  <div class="mobhint">TAP TO JUMP · TAP AGAIN TO DOUBLE-JUMP</div>
+  <div class="gpostmark" aria-hidden="true">BONJOUR FROM<strong>PARIS</strong>48°51′ N · 2°21′ E</div>
+  <div class="gcredit">A PLAYABLE POSTCARD · MAGNIM MAXIME AWILI</div>
 
   <div class="gscreen" id="gReady">
     <div class="gcard">
-      <div class="kana">ゼロ・ダウンタイム · THE MINI-GAME</div>
-      <h2>ZERO <span>DOWNTIME</span></h2>
-      <p>You are the <b>Cloud Architect</b>. Keep the payment realm running: leap over bugs, outages &amp; legacy walls, grab tech power-ups, and survive your 9-year saga from <b>2015 → NOW</b>. Clear it to unlock <b>Endless Mode</b> and chase a high score. If Uptime hits 0%, the system goes down.</p>
-      <div class="keys"><span class="key">SPACE / ↑ · Jump</span><span class="key">Tap again · Double-jump</span><span class="key">Jump the flying 502s</span><span class="key">Clear the saga → Endless</span><span class="key">P · Pause</span></div>
-      <p class="gsub" style="margin-top:14px">Choose your difficulty</p>
-      <div class="diffsel" id="diffSel">
-        <button class="dbtn" data-diff="easy">EASY</button>
-        <button class="dbtn active" data-diff="normal">NORMAL</button>
-        <button class="dbtn" data-diff="hard">HARD</button>
+      <div class="gedition"><span>THE PLAYABLE RÉSUMÉ · VOL. 02</span><span class="gflag" aria-label="France"></span></div>
+      <h2>ZERO<br><span>DOWNTIME.</span></h2>
+      <div class="gsubtitle">A little Paris. A lot of uptime.</div>
+      <p>Step into Maxime’s sneakers. Leap over French landmarks, collect his tech stack, and keep the payments flowing — from first lines of Java to cloud architecture.</p>
+      <div class="groute" aria-label="Career route">
+        <span><b>2015</b>Société Générale</span><span><b>2016</b>Sopra Steria</span><span><b>2017</b>Engineering</span><span><b>2020 →</b>Transactis</span>
       </div>
-      <p class="gsub">Best Score: <b id="bestReady">0</b></p>
-      <div class="gbtns"><button class="gbig" id="gStart">▶ START RUN</button></div>
+      <div class="keys"><span class="key">SPACE / ↑ / TAP · Jump</span><span class="key">Again · Double-jump</span><span class="key">P · Pause</span></div>
+      <p class="gsub">Pick your pace</p>
+      <div class="diffsel" id="diffSel">
+        <button class="dbtn" data-diff="easy" aria-pressed="false">Sunday stroll</button>
+        <button class="dbtn active" data-diff="normal" aria-pressed="true">Rush hour</button>
+        <button class="dbtn" data-diff="hard" aria-pressed="false">On-call</button>
+      </div>
+      <div class="glaunch"><button class="gbig" id="gStart">LET’S RUN →</button><span class="gsub">PERSONAL BEST<br><b id="bestReady">0</b> pts</span></div>
+      <p class="gsub" style="font-size:9px;margin-top:18px">Tech = +12 pts &amp; +4% uptime · 0% = game over<br>Finish the career route to unlock an endless Paris.</p>
     </div>
   </div>
 
@@ -848,70 +1024,69 @@ section,header,footer{position:relative;z-index:1}
   var canvas=document.getElementById('gcanvas');
   if(!overlay||!canvas) return;
   var ctx=canvas.getContext('2d');
-  var INK='#15120d', PAPER='#f3ecdd', RED='#e0231b', GOLD='#f2b705', GRAY='#8a8577';
+  var INK='#292638', PAPER='#fff4df', RED='#c34f40', GOLD='#f9cc78', GRAY='#817383';
   var DPR=Math.max(1,Math.min(2,window.devicePixelRatio||1));
   var W=800,H=500,groundY=380,VIEW=1;
   var state='ready', raf=null, last=0;
   var best=0; try{best=parseInt(localStorage.getItem('awili_zd_best')||'0',10)||0;}catch(e){}
-  var TECH=['K8S','KAFKA','AWS','GCP','GO','PYTHON','TERRAFORM','REDIS','DOCKER','ANSIBLE','HELM','MONGO','NGINX'];
+  var TECH_ARCS=[['JAVA','DB2'],['TIBCO','ORACLE'],['JAVA','CI/CD','ORACLE'],['K8S','KAFKA','GEN AI','REDIS','ANSIBLE','NGINX']];
   var DIFF={
-    easy:  {name:'EASY',   base:240, ramp:0.55, cap:520, gapBase:1.75, gapMin:0.98, flyMax:0.14, dmg:0.75},
-    normal:{name:'NORMAL', base:300, ramp:0.82, cap:640, gapBase:1.45, gapMin:0.74, flyMax:0.26, dmg:1.0},
-    hard:  {name:'HARD',   base:360, ramp:1.15, cap:760, gapBase:1.20, gapMin:0.58, flyMax:0.36, dmg:1.35}
+    easy:  {name:'SUNDAY STROLL',base:210,ramp:0.18,cap:290,gapBase:2.3,gapMin:1.8,dmg:0.75},
+    normal:{name:'RUSH HOUR',base:250,ramp:0.32,cap:400,gapBase:1.8,gapMin:1.35,dmg:1},
+    hard:  {name:'ON-CALL',base:300,ramp:0.42,cap:490,gapBase:1.55,gapMin:1.15,dmg:1.35}
   };
   var diff='normal';
   function cfg(){ return DIFF[diff]||DIFF.normal; }
   var GROUND_OBS=[
-    {w:30,h:26,type:'bug',  label:'BUG'},
-    {w:30,h:26,type:'bug',  label:'NULL PTR'},
-    {w:34,h:44,type:'sign', label:'ERR'},
-    {w:34,h:44,type:'sign', label:'500'},
-    {w:34,h:44,type:'sign', label:'MEM LEAK'},
-    {w:38,h:52,type:'sign', label:'DEADLOCK'},
-    {w:42,h:64,type:'wall', label:'LEGACY'},
-    {w:44,h:70,type:'wall', label:'TECH DEBT'},
-    {w:48,h:80,type:'wall', label:'MONOLITH'}
+    {w:70,h:118,type:'eiffel',label:'TOUR EIFFEL'},
+    {w:82,h:72,type:'arc',label:'ARC DE TRIOMPHE'},
+    {w:88,h:58,type:'louvre',label:'LE LOUVRE'},
+    {w:76,h:96,type:'sacre',label:'SACRÉ-CŒUR'},
+    {w:64,h:110,type:'cathedral',label:'STRASBOURG'}
   ];
-  var FLY_OBS=['502','503','DDoS','SPIKE','TIMEOUT'];
-  var hero,obstacles,tokens,parts,floaters,streaks,racks,milestones,banner;
+  var hero,obstacles,tokens,parts,floaters,milestones,banner;
   var speed,dist,score,uptime,spawnT,tokT,shake,runPhase,hitFlash,gameT,groundScroll,lastChapter,endless,startBest,recNew;
+  var arcIndex=0, collected=0, previousFocus=null, previousOverflow='', lastLandmark=-1, lastTech='';
+  var reducedMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   function rr(x,y,w,h,r){ctx.beginPath();ctx.moveTo(x+r,y);ctx.arcTo(x+w,y,x+w,y+h,r);ctx.arcTo(x+w,y+h,x,y+h,r);ctx.arcTo(x,y+h,x,y,r);ctx.arcTo(x,y,x+w,y,r);ctx.closePath();}
 
   function resize(){
     var r=overlay.getBoundingClientRect();
     var aw=Math.max(320,Math.round(r.width)), ah=Math.max(320,Math.round(r.height));
-    var MIN_W=680;                        // always keep at least this many world units visible across
-    VIEW=Math.min(1, aw/MIN_W);           // zoom OUT on narrow screens (never zoom in past 1:1)
+    var oldGround=groundY;
+    // Keep the artwork at least life-size on phones; adjust pace, not legibility.
+    VIEW=Math.min(1.6, Math.max(1,aw/1000));
+    DPR=Math.max(1,Math.min(2,window.devicePixelRatio||1));
     W=Math.round(aw/VIEW); H=Math.round(ah/VIEW);
     canvas.width=Math.round(aw*DPR); canvas.height=Math.round(ah*DPR); canvas.style.width=aw+'px'; canvas.style.height=ah+'px';
     ctx.setTransform(DPR*VIEW,0,0,DPR*VIEW,0,0);
-    groundY=H-Math.max(96,Math.round(H*0.22));
-    if(hero){ hero.x=Math.max(66,Math.round(W*0.16)); if(hero.onGround) hero.y=groundY-hero.h; }
+    groundY=H-Math.max(72,Math.round(H*0.19));
+    if(hero){ hero.x=Math.max(58,Math.round(W*0.16)); hero.y+=groundY-oldGround; }
+    if(obstacles) obstacles.forEach(function(o){o.y+=groundY-oldGround;});
+    if(tokens) tokens.forEach(function(t){t.y+=groundY-oldGround;});
   }
   window.addEventListener('resize',function(){ if(overlay.classList.contains('on')) resize(); });
 
   function reset(){
     resize();
-    hero={x:Math.max(66,Math.round(W*0.16)), y:groundY-54, w:32, h:54, vy:0, onGround:true, jumps:0};
+    hero={x:Math.max(58,Math.round(W*0.16)), y:groundY-54, w:32, h:54, vy:0, onGround:true, jumps:0};
     obstacles=[]; tokens=[]; parts=[]; floaters=[]; banner=null;
-    streaks=[]; for(var i=0;i<9;i++) streaks.push({x:Math.random()*W, y:20+Math.random()*(groundY-60), len:60+Math.random()*120, sp:0.5+Math.random()});
-    racks=[]; for(var k=0;k<5;k++) racks.push({x:Math.random()*W, w:40+Math.random()*40, h:50+Math.random()*70});
-    speed=cfg().base; dist=0; score=0; uptime=100; spawnT=0.9; tokT=1.1; shake=0; runPhase=0; hitFlash=0; gameT=0; groundScroll=0; lastChapter='2015 · The Origin'; endless=false; startBest=best; recNew=false;
+    speed=cfg().base; dist=0; score=0; uptime=100; spawnT=1.4; tokT=0.7; shake=0; runPhase=0; hitFlash=0; gameT=0; groundScroll=0; lastChapter='Société Générale · 2015'; endless=false; startBest=best; recNew=false; arcIndex=0; collected=0; lastLandmark=-1; lastTech='';
     milestones=[
-      {d:70,  no:'第01話', t:'THE ORIGIN',            org:'Société Générale · 2015', hit:false},
-      {d:150, no:'第02話', t:'THE APPRENTICE',        org:'Sopra Steria · 2016',      hit:false},
-      {d:250, no:'第03話', t:'RISE OF THE ENGINEER',  org:'Sopra Steria · 2017–20',   hit:false},
-      {d:380, no:'第04話', t:'THE CLOUD ARCHITECT',   org:'Transactis · 2020→NOW',    hit:false},
-      {d:520, no:'∞',      t:'ENDLESS MODE',          org:'Saga cleared — set a record!', hit:false, win:true}
+      {d:8,no:'01 / THE ORIGIN',t:'FIRST LINES OF JAVA',org:'Société Générale · 2015',detail:'Java & DB2 · Payment-system tooling',arc:0,hit:false},
+      {d:130,no:'02 / THE APPRENTICE',t:'KEEP AN EYE ON PRODUCTION',org:'Sopra Steria · 2016',detail:'TIBCO & Oracle · Monitoring and alerting',arc:1,hit:false},
+      {d:250,no:'03 / THE ENGINEER',t:'MIGRATE. AUTOMATE. REPEAT.',org:'Sopra Steria · 2017–20',detail:'Enterprise migrations · 24/7 availability',arc:2,hit:false},
+      {d:380,no:'04 / THE CLOUD ARCHITECT',t:'BUILD THE CLOUD. LEAD THE TEAM.',org:'Transactis · 2020 → NOW',detail:'Kubernetes, platform architecture & GenAI',arc:3,hit:false},
+      {d:520,no:'∞ / THE NEXT CHAPTER',t:'CAREER CLEARED. PARIS IS YOURS.',org:'Endless Paris · Set your next record',detail:'The next chapter is still being written.',arc:3,hit:false,win:true}
     ];
   }
 
   function hideScreens(){ ['gReady','gPause','gOver','gWin'].forEach(function(x){var el=document.getElementById(x); if(el) el.classList.add('hidden');}); }
-  function showScreen(id){ hideScreens(); var el=document.getElementById(id); if(el) el.classList.remove('hidden'); }
+  function showScreen(id){ hideScreens(); var el=document.getElementById(id); if(el){el.classList.remove('hidden');var button=el.querySelector('button');if(button) button.focus();} }
 
-  function openGame(){ overlay.classList.add('on'); overlay.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden'; state='ready'; reset(); showScreen('gReady'); var b=document.getElementById('bestReady'); if(b) b.textContent=best; last=0; if(!raf) raf=requestAnimationFrame(loop); }
-  function closeGame(){ overlay.classList.remove('on'); overlay.setAttribute('aria-hidden','true'); document.body.style.overflow=''; state='ready'; if(raf){cancelAnimationFrame(raf); raf=null;} }
+  function openGame(){ previousFocus=document.activeElement; previousOverflow=document.body.style.overflow; overlay.classList.add('on'); overlay.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden'; state='ready'; overlay.dataset.state=state; reset(); showScreen('gReady'); var b=document.getElementById('bestReady'); if(b) b.textContent=best; document.getElementById('gStart').focus(); last=0; if(!raf) raf=requestAnimationFrame(loop); }
+  function closeGame(){ overlay.classList.remove('on'); overlay.setAttribute('aria-hidden','true'); document.body.style.overflow=previousOverflow; state='ready'; if(raf){cancelAnimationFrame(raf); raf=null;} if(previousFocus) previousFocus.focus(); }
   function startRun(){ if(document.activeElement&&document.activeElement.blur) document.activeElement.blur(); reset(); state='play'; hideScreens(); }
   function pause(){ if(state==='play'){state='paused'; showScreen('gPause');} }
   function resume(){ if(state==='paused'){state='play'; hideScreens();} }
@@ -930,23 +1105,40 @@ section,header,footer{position:relative;z-index:1}
 
   function jump(){
     if(state!=='play') return;
-    if(hero.onGround){ hero.vy=-580; hero.onGround=false; hero.jumps=1; floater('ジャンプ',hero.x+28,hero.y-6,INK); dust(hero.x,groundY); }
-    else if(hero.jumps<2){ hero.vy=-520; hero.jumps=2; burst(hero.x+16,hero.y+hero.h,GOLD); floater('ダブル',hero.x+28,hero.y-6,RED); }
+    if(hero.onGround){ hero.vy=-580; hero.onGround=false; hero.jumps=1; dust(hero.x,groundY); }
+    else if(hero.jumps<2){ hero.vy=-520; hero.jumps=2; burst(hero.x+16,hero.y+hero.h,GOLD); }
   }
 
   function spawnObstacle(){
-    var flying=Math.random() < Math.min(cfg().flyMax, 0.05+dist/2600);
-    if(flying){ var fl=FLY_OBS[Math.floor(Math.random()*FLY_OBS.length)]; obstacles.push({x:W+40, y:groundY-112, w:54, h:26, type:'fly', label:fl}); return; }
-    var o=GROUND_OBS[Math.floor(Math.random()*GROUND_OBS.length)];
+    var pick=(lastLandmark+1+Math.floor(Math.random()*(GROUND_OBS.length-1)))%GROUND_OBS.length;
+    lastLandmark=pick; var o=GROUND_OBS[pick];
     obstacles.push({x:W+40, y:groundY-o.h, w:o.w, h:o.h, type:o.type, label:o.label});
   }
-  function spawnToken(){ var label=TECH[Math.floor(Math.random()*TECH.length)]; ctx.font='900 13px "Zen Kaku Gothic New",sans-serif'; var w=Math.round(ctx.measureText(label).width)+24, h=28; tokens.push({x:W+40, y:groundY-(66+Math.random()*96), w:w, h:h, r:h/2, label:label, t:Math.random()*6}); }
+  function spawnToken(){
+    var tech=TECH_ARCS[arcIndex],label=tech[Math.floor(Math.random()*tech.length)];
+    ctx.font='700 '+(15/VIEW)+'px sans-serif';
+    var w=Math.round(ctx.measureText(label).width)+24/VIEW,h=32/VIEW,x=W+40,y=groundY-(60+Math.random()*116);
+    // Do not cover a monument or its name with a collectible.
+    for(var i=0;i<obstacles.length;i++){var o=obstacles[i];if(Math.abs(x-(o.x+o.w/2))<(o.w+w)/2+24)y=Math.min(y,o.y-64/VIEW);}
+    tokens.push({x:x,y:y,w:w,h:h,label:label,t:0});
+  }
   function dust(x,y){ for(var i=0;i<6;i++) parts.push({x:x,y:y,vx:-40-Math.random()*70,vy:-20-Math.random()*50,life:0.45,c:INK,s:3}); }
   function burst(x,y,c){ for(var i=0;i<12;i++){var a=Math.random()*6.283,sp=70+Math.random()*180; parts.push({x:x,y:y,vx:Math.cos(a)*sp,vy:Math.sin(a)*sp-40,life:0.55,c:c,s:3+Math.random()*3});} }
   function confetti(){ var cols=[GOLD,RED,INK,'#2b9348']; for(var i=0;i<46;i++){ parts.push({x:W*0.15+Math.random()*W*0.7, y:-12-Math.random()*60, vx:(Math.random()-0.5)*140, vy:70+Math.random()*170, life:1.1+Math.random()*0.7, c:cols[i%cols.length], s:3+Math.random()*4}); } }
   function floater(txt,x,y,c){ floaters.push({txt:txt,x:x,y:y,life:0.9,c:c}); }
-  function damage(d){ uptime-=d; hitFlash=0.35; shake=11; floater('ドン!',hero.x+18,hero.y-12,RED); if(uptime<=0){uptime=0; gameOver();} }
+  function damage(d){ if(hitFlash>0) return; uptime-=d; hitFlash=0.7; shake=reducedMotion?0:7; burst(hero.x+16,hero.y+24,RED); floater('−'+Math.round(d)+'% UPTIME',hero.x+18,hero.y-12,RED); if(uptime<=0){uptime=0; gameOver();} }
   function hitBox(a,b){ return a.x<b.x+b.w && a.x+a.w>b.x && a.y<b.y+b.h && a.y+a.h>b.y; }
+  function hitsMonument(o){
+    var feet=hero.y+hero.h-3, body={x:hero.x+6,y:hero.y+5,w:hero.w-12,h:hero.h-8};
+    if(!hitBox(body,o)) return false;
+    // Narrow silhouettes use a matching tapered collision envelope.
+    if(o.type==='eiffel'||o.type==='louvre'){
+      var fraction=Math.max(0,Math.min(1,(feet-o.y)/o.h));
+      var width=o.w*(o.type==='eiffel'?0.12+0.88*fraction:fraction);
+      return hitBox(body,{x:o.x+(o.w-width)/2,y:o.y,w:width,h:o.h});
+    }
+    return hitBox(body,{x:o.x+5,y:o.y+5,w:o.w-10,h:o.h-5});
+  }
 
   function update(dt){
     var c=cfg();
@@ -967,20 +1159,18 @@ section,header,footer{position:relative;z-index:1}
 
     var i,o,tk;
     for(i=obstacles.length-1;i>=0;i--){ o=obstacles[i]; o.x-=speed*dt;
-      if(hitBox(hero,o)){ obstacles.splice(i,1); damage((o.type==='wall'?32:(o.type==='fly'?26:22))*c.dmg); continue; }
+      if(!o.hit && hitsMonument(o)){ o.hit=true; damage(24*c.dmg); if(state!=='play') return; }
       if(o.x+o.w<-30){ obstacles.splice(i,1); score+=2; }
     }
     for(i=tokens.length-1;i>=0;i--){ tk=tokens[i]; tk.x-=speed*dt; tk.t+=dt;
       var box={x:tk.x-tk.w/2,y:tk.y-tk.h/2,w:tk.w,h:tk.h};
-      if(hitBox(hero,box)){ tokens.splice(i,1); score+=12; uptime=Math.min(100,uptime+2); burst(tk.x,tk.y,RED); floater('+'+tk.label,tk.x,tk.y-8,INK); continue; }
+      if(hitBox(hero,box)){ tokens.splice(i,1); score+=12; collected++; lastTech=tk.label; uptime=Math.min(100,uptime+4); burst(tk.x,tk.y,GOLD); floater('+'+tk.label,tk.x,tk.y-8,INK); continue; }
       if(tk.x+tk.w/2<-30) tokens.splice(i,1);
     }
     for(i=parts.length-1;i>=0;i--){ var P=parts[i]; P.life-=dt; if(P.life<=0){parts.splice(i,1);continue;} P.x+=P.vx*dt; P.y+=P.vy*dt; P.vy+=650*dt; }
     for(i=floaters.length-1;i>=0;i--){ var F=floaters[i]; F.life-=dt; F.y-=44*dt; if(F.life<=0) floaters.splice(i,1); }
-    for(i=0;i<streaks.length;i++){ var s=streaks[i]; s.x-=speed*dt*s.sp; if(s.x+s.len<0){s.x=W+Math.random()*80; s.y=20+Math.random()*(groundY-60); s.len=60+Math.random()*120;} }
-    for(i=0;i<racks.length;i++){ var rk=racks[i]; rk.x-=speed*dt*0.5; if(rk.x+rk.w<0){rk.x=W+Math.random()*200; rk.w=40+Math.random()*40; rk.h=50+Math.random()*70;} }
 
-    for(i=0;i<milestones.length;i++){ var ms=milestones[i]; if(!ms.hit && dist>=ms.d){ ms.hit=true; banner={ms:ms,life:3.1}; lastChapter=ms.org; burst(W*0.5,H*0.32,GOLD); if(ms.win){ endless=true; lastChapter='∞ ENDLESS MODE'; confetti(); } } }
+    for(i=0;i<milestones.length;i++){ var ms=milestones[i]; if(!ms.hit && dist>=ms.d){ ms.hit=true; banner={ms:ms,life:4}; lastChapter=ms.org; arcIndex=ms.arc; burst(W*0.5,H*0.32,GOLD); if(ms.win){ endless=true; confetti(); } } }
     if(banner){ banner.life-=dt; if(banner.life<=0) banner=null; }
 
     if(!recNew && startBest>0 && score>startBest){ recNew=true; confetti(); floater('新記録!',hero.x+22,hero.y-18,GOLD); banner={ms:{no:'新記録',t:'NEW RECORD!',org:'Beat your best — keep the run alive!'},life:2.6}; }
@@ -989,36 +1179,109 @@ section,header,footer{position:relative;z-index:1}
   }
 
   function drawBackground(){
-    ctx.fillStyle=PAPER; ctx.fillRect(0,0,W,H);
-    ctx.strokeStyle='rgba(21,18,13,0.10)'; ctx.lineWidth=3;
-    for(var i=0;i<streaks.length;i++){ var s=streaks[i]; ctx.beginPath(); ctx.moveTo(s.x,s.y); ctx.lineTo(s.x+s.len,s.y); ctx.stroke(); }
-    for(var k=0;k<racks.length;k++){ var r=racks[k]; ctx.fillStyle='rgba(21,18,13,0.07)'; ctx.fillRect(r.x, groundY-r.h, r.w, r.h);
-      ctx.strokeStyle='rgba(21,18,13,0.12)'; ctx.lineWidth=2;
-      for(var y=groundY-r.h+8; y<groundY-4; y+=10){ ctx.beginPath(); ctx.moveTo(r.x+4,y); ctx.lineTo(r.x+r.w-4,y); ctx.stroke(); } }
+    var sky=ctx.createLinearGradient(0,0,0,groundY);
+    sky.addColorStop(0,'#aaa1bc'); sky.addColorStop(.48,'#e9b4ac'); sky.addColorStop(1,'#ffdda8');
+    ctx.fillStyle=sky; ctx.fillRect(0,0,W,H);
+    var sunX=W*.76,sunY=groundY*.4,sunR=Math.min(W*.12,105);
+    ctx.fillStyle='rgba(255,231,181,.18)'; ctx.beginPath(); ctx.arc(sunX,sunY,sunR*1.35,0,Math.PI*2); ctx.fill();
+    ctx.fillStyle='#ffe6b5'; ctx.beginPath(); ctx.arc(sunX,sunY,sunR,0,Math.PI*2); ctx.fill();
+    // Thin clouds and birds keep the postcard airy above the skyline.
+    for(var c=0;c<5;c++){
+      var cx=((c*277-dist*1.1)%(W+240)+W+240)%(W+240)-120,cy=groundY*(.15+(c%3)*.13);
+      ctx.fillStyle='rgba(255,239,209,.25)'; rr(cx,cy,100+c%2*75,5,2); ctx.fill();
+    }
+    ctx.strokeStyle='#72647d'; ctx.lineWidth=1.3;
+    for(var b=0;b<4;b++){var bx=W*.57+b*25,by=groundY*.23+Math.sin(b*2)*18;ctx.beginPath();ctx.moveTo(bx-5,by);ctx.quadraticCurveTo(bx-2,by-4,bx,by);ctx.quadraticCurveTo(bx+3,by-4,bx+6,by);ctx.stroke();}
+    var drift=reducedMotion?0:dist*2;
+    // Three scrolling depth layers, with recognizable monuments behind the roofs.
+    ctx.save(); ctx.globalAlpha=.38;
+    drawMonument('eiffel',W*.68-drift*.12,groundY-320,190,320,'#85718d',true);
+    drawMonument('sacre',W*.2-drift*.1,groundY-55-118,145,118,'#a08699',true);
+    ctx.restore();
+    ctx.save();ctx.globalAlpha=.48;
+    for(var layer=0;layer<2;layer++){
+      var unit=layer?94:76,offset=(drift*(layer?.65:.3))%unit;
+      for(var i=-1;i<W/unit+2;i++){
+        var seed=((i+Math.floor(drift*(layer?.65:.3)/unit))%13+13)%13;
+        var bh=(layer?65:85)+(Math.sin(seed*7.13)+1)*(layer?19:28),x=i*unit-offset,base=groundY-(layer?0:30);
+        ctx.fillStyle=layer?'#806c80':'#b192a2';ctx.fillRect(x,base-bh,unit-3,bh);
+        ctx.fillStyle=layer?'#5e566f':'#947f99';ctx.beginPath();ctx.moveTo(x-3,base-bh);ctx.lineTo(x+10,base-bh-15);ctx.lineTo(x+unit-16,base-bh-15);ctx.lineTo(x+unit,base-bh);ctx.closePath();ctx.fill();
+        ctx.fillRect(x+17,base-bh-24,6,13);
+        if(layer){
+          for(var row=0;row<3;row++) for(var col=0;col<4;col++){
+            ctx.fillStyle=(seed+row+col)%4===0?'#eac594':'#60596f';ctx.fillRect(x+12+col*19,base-bh+12+row*25,7,12);
+            ctx.fillStyle='#a58b96';ctx.fillRect(x+10+col*19,base-bh+25+row*25,11,2);
+          }
+        }
+      }
+    }
+    ctx.restore();
+    // A light haze separates the playable landmarks from the city behind them.
+    var haze=ctx.createLinearGradient(0,groundY-180,0,groundY);
+    haze.addColorStop(0,'rgba(255,236,203,0)');haze.addColorStop(1,'rgba(255,236,203,.72)');
+    ctx.fillStyle=haze;ctx.fillRect(0,groundY-180,W,180);
+    if(state==='ready'){
+      drawMonument('arc',W*.59,groundY-87,100,87,'#e5bd99');
+      drawMonument('louvre',W*.86,groundY-65,100,65,'#b3c9c3');
+    }
   }
   function drawGround(){
-    ctx.fillStyle=INK; ctx.fillRect(0,groundY,W,4);
-    ctx.save(); ctx.fillStyle='rgba(21,18,13,0.16)';
-    for(var x=-40+ (40-groundScroll); x<W; x+=14){ for(var y=groundY+12; y<H; y+=14){ ctx.beginPath(); ctx.arc(x,y,1.6,0,6.283); ctx.fill(); } }
-    ctx.restore();
-    ctx.strokeStyle=INK; ctx.lineWidth=3; ctx.beginPath();
-    for(var d=-groundScroll; d<W; d+=40){ ctx.moveTo(d,groundY+9); ctx.lineTo(d+18,groundY+9); }
-    ctx.stroke();
+    ctx.fillStyle='#393447'; ctx.fillRect(0,groundY,W,H-groundY);
+    ctx.fillStyle='#f6d5aa';ctx.fillRect(0,groundY,W,5);
+    ctx.fillStyle='#8e737e';ctx.fillRect(0,groundY+5,W,5);
+    ctx.strokeStyle='#514659';ctx.lineWidth=1;
+    for(var row=0;row<4;row++){
+      var yy=groundY+14+row*22;ctx.beginPath();ctx.moveTo(0,yy);ctx.lineTo(W,yy);
+      for(var x=-80-groundScroll+(row%2)*40;x<W;x+=80){ctx.moveTo(x,yy);ctx.lineTo(x,yy+22);}ctx.stroke();
+    }
+    ctx.fillStyle='#cdb5af';ctx.textAlign='left';ctx.font='9px sans-serif';ctx.fillText('MAXIME AWILI  /  THE CLOUD ARCHITECT',22,groundY+34);
+    ctx.textAlign='right';ctx.fillText('PARIS ROOFTOPS  ·  '+cfg().name,W-22,groundY+34);
   }
   function drawHero(){
-    var x=hero.x, y=hero.y, w=hero.w, h=hero.h;
-    ctx.save(); ctx.translate(x,y);
-    var flap=Math.sin(gameT*12)*4;
-    ctx.fillStyle=RED; ctx.strokeStyle=INK; ctx.lineWidth=3;
-    ctx.beginPath(); ctx.moveTo(w*0.55,10); ctx.quadraticCurveTo(-16,12+flap,-8,h*0.72+flap); ctx.quadraticCurveTo(6,h*0.5,w*0.5,h*0.5); ctx.closePath(); ctx.fill(); ctx.stroke();
-    ctx.strokeStyle=INK; ctx.lineWidth=6; ctx.lineCap='round';
-    var a=hero.onGround?Math.sin(runPhase):0.7, b=hero.onGround?Math.sin(runPhase+Math.PI):-0.5;
-    ctx.beginPath(); ctx.moveTo(w*0.5,h*0.66); ctx.lineTo(w*0.5+a*11,h); ctx.stroke();
-    ctx.beginPath(); ctx.moveTo(w*0.5,h*0.66); ctx.lineTo(w*0.5+b*11,h-1); ctx.stroke();
-    ctx.fillStyle=INK; rr(w*0.3,h*0.3,w*0.46,h*0.4,6); ctx.fill();
-    ctx.beginPath(); ctx.moveTo(w*0.56,h*0.4); ctx.lineTo(w*0.8+Math.sin(runPhase)*6,h*0.54); ctx.stroke();
-    ctx.beginPath(); ctx.arc(w*0.56,h*0.2,11,0,6.283); ctx.fill();
-    ctx.beginPath(); ctx.moveTo(w*0.5,h*0.12); ctx.lineTo(w*0.44,-2); ctx.lineTo(w*0.6,h*0.08); ctx.lineTo(w*0.62,-4); ctx.lineTo(w*0.72,h*0.14); ctx.closePath(); ctx.fill();
+    var x=hero.x,y=hero.y,a=hero.onGround?Math.sin(runPhase):.8;
+    ctx.save();ctx.fillStyle='rgba(35,30,48,.2)';ctx.beginPath();ctx.ellipse(x+16,groundY-1,20,4,0,0,Math.PI*2);ctx.fill();
+    ctx.translate(x,y);if(hitFlash>0&&Math.floor(hitFlash*16)%2===0)ctx.globalAlpha=.45;
+    ctx.strokeStyle=INK;ctx.lineWidth=1.5;ctx.lineJoin='round';
+    // Scarf, backpack, jacket and bright sneakers give the architect a silhouette.
+    ctx.fillStyle=RED;ctx.beginPath();ctx.moveTo(14,19);ctx.quadraticCurveTo(-8,15,-22,8+Math.sin(gameT*12)*5);ctx.lineTo(-17,19);ctx.quadraticCurveTo(-5,27,15,24);ctx.closePath();ctx.fill();ctx.stroke();
+    ctx.fillStyle='#657c85';rr(1,23,12,19,4);ctx.fill();ctx.stroke();
+    ctx.strokeStyle=INK;ctx.lineWidth=7;ctx.lineCap='round';
+    ctx.beginPath();ctx.moveTo(17,37);ctx.lineTo(17+a*10,46);ctx.lineTo(16+a*14,51);ctx.moveTo(17,37);ctx.lineTo(17-a*9,45);ctx.lineTo(17-a*13,51);ctx.stroke();
+    ctx.strokeStyle=PAPER;ctx.lineWidth=4;ctx.beginPath();ctx.moveTo(14+a*14,52);ctx.lineTo(20+a*14,52);ctx.moveTo(15-a*13,52);ctx.lineTo(22-a*13,52);ctx.stroke();
+    ctx.fillStyle='#e9c797';ctx.strokeStyle=INK;ctx.lineWidth=1.5;rr(10,20,17,19,4);ctx.fill();ctx.stroke();
+    ctx.strokeStyle='#aa8065';ctx.lineWidth=5;ctx.beginPath();ctx.moveTo(21,25);ctx.lineTo(27+a*3,32);ctx.lineTo(32,26);ctx.stroke();
+    ctx.fillStyle='#bd8565';ctx.strokeStyle=INK;ctx.lineWidth=1.5;ctx.beginPath();ctx.arc(20,11,10,0,Math.PI*2);ctx.fill();ctx.stroke();
+    ctx.fillStyle=INK;ctx.beginPath();ctx.arc(18,7,9,Math.PI,Math.PI*2);ctx.lineTo(29,8);ctx.lineTo(24,4);ctx.lineTo(11,12);ctx.closePath();ctx.fill();
+    ctx.fillStyle=PAPER;ctx.fillRect(22,10,8,4);ctx.strokeStyle=INK;ctx.lineWidth=1.5;ctx.strokeRect(22,10,8,4);ctx.beginPath();ctx.moveTo(16,11);ctx.lineTo(22,11);ctx.stroke();
+    ctx.fillStyle=RED;rr(11,18,16,5,2);ctx.fill();
+    ctx.restore();
+  }
+  function drawMonument(type,x,y,w,h,color,silhouette){
+    ctx.save();ctx.translate(x,y);ctx.scale(w/100,h/100);
+    ctx.fillStyle=color||'#e7bf99';ctx.strokeStyle=silhouette?color:INK;ctx.lineWidth=1.7;ctx.lineJoin='round';
+    function shape(points){ctx.beginPath();points.forEach(function(p,i){if(i)ctx.lineTo(p[0],p[1]);else ctx.moveTo(p[0],p[1]);});ctx.closePath();ctx.fill();ctx.stroke();}
+    function line(x1,y1,x2,y2){ctx.beginPath();ctx.moveTo(x1,y1);ctx.lineTo(x2,y2);ctx.stroke();}
+    if(type==='eiffel'){
+      shape([[48,5],[52,5],[57,37],[68,66],[94,98],[73,98],[57,74],[43,74],[27,98],[6,98],[32,66],[43,37]]);
+      line(50,0,50,9);ctx.fillRect(36,36,28,4);ctx.strokeRect(36,36,28,4);ctx.fillRect(24,65,52,5);ctx.strokeRect(24,65,52,5);
+      if(silhouette){ctx.strokeStyle='#63536f';ctx.lineWidth=1;}
+      for(var i=0;i<5;i++){var yy=40+i*5,half=7+i*2;line(50-half,yy,50+half+2,yy+5);line(50+half,yy,50-half-2,yy+5);}line(19,92,37,76);line(81,92,63,76);
+    }else if(type==='arc'){
+      // The arch is cut into the path so scenery remains visible through it.
+      ctx.beginPath();ctx.moveTo(5,100);ctx.lineTo(5,14);ctx.lineTo(95,14);ctx.lineTo(95,100);ctx.lineTo(66,100);ctx.lineTo(66,62);ctx.bezierCurveTo(66,37,34,37,34,62);ctx.lineTo(34,100);ctx.closePath();ctx.fill();ctx.stroke();
+      ctx.fillRect(0,7,100,12);ctx.strokeRect(0,7,100,12);ctx.fillRect(5,0,90,7);ctx.strokeRect(5,0,90,7);
+      if(!silhouette){line(9,29,91,29);ctx.fillStyle='#bc937f';ctx.fillRect(14,48,12,27);ctx.fillRect(74,48,12,27);line(0,99,36,99);line(64,99,100,99);for(var n=0;n<8;n++)ctx.fillRect(11+n*10,22,5,3);}
+    }else if(type==='louvre'){
+      shape([[0,98],[50,3],[100,98]]);
+      if(!silhouette){ctx.strokeStyle='#617987';ctx.lineWidth=1;for(var k=1;k<6;k++){line(50-k*8,3+k*15,50+k*8,3+k*15);line(50,3,k*16,98);}ctx.fillStyle='rgba(255,244,223,.35)';shape([[50,3],[65,98],[100,98]]);}
+    }else if(type==='sacre'){
+      ctx.fillRect(9,61,82,39);ctx.strokeRect(9,61,82,39);
+      [22,50,78].forEach(function(cx,i){var top=i===1?18:43,r=i===1?17:12;ctx.beginPath();ctx.moveTo(cx-r,70);ctx.lineTo(cx-r,top+16);ctx.bezierCurveTo(cx-r,top+4,cx-3,top+5,cx,top-7);ctx.bezierCurveTo(cx+3,top+5,cx+r,top+4,cx+r,top+16);ctx.lineTo(cx+r,70);ctx.closePath();ctx.fill();ctx.stroke();line(cx,top-15,cx,top-5);line(cx-4,top-11,cx+4,top-11);});
+      if(!silhouette){ctx.fillStyle='#8a7080';for(var z=0;z<3;z++){rr(31+z*15,79,9,21,4);ctx.fill();}ctx.beginPath();ctx.arc(50,58,5,0,Math.PI*2);ctx.fill();line(4,99,96,99);}
+    }else{
+      shape([[8,100],[8,38],[15,38],[22,0],[30,38],[36,38],[36,55],[87,55],[92,100]]);
+      if(!silhouette){ctx.fillStyle='#85697a';for(var q=0;q<3;q++)ctx.fillRect(15+q*7,44,3,23);ctx.beginPath();ctx.arc(59,74,10,0,Math.PI*2);ctx.fill();ctx.strokeStyle='#e7bf99';line(49,74,69,74);line(59,64,59,84);ctx.fillStyle='#5c5369';rr(53,88,12,12,5);ctx.fill();}
+    }
     ctx.restore();
   }
   function drawTag(label,cx,topY){
@@ -1030,28 +1293,20 @@ section,header,footer{position:relative;z-index:1}
     ctx.fillStyle=INK; ctx.fillText(label,bx+bw/2,by+bh/2+1.5);
   }
   function drawObstacles(){
-    for(var i=0;i<obstacles.length;i++){ var o=obstacles[i];
-      if(o.type==='fly'){
-        ctx.fillStyle=RED; ctx.strokeStyle=INK; ctx.lineWidth=3; rr(o.x,o.y,o.w,o.h,4); ctx.fill(); ctx.stroke();
-        ctx.strokeStyle=INK; ctx.lineWidth=2; ctx.beginPath(); ctx.moveTo(o.x,o.y+4); ctx.lineTo(o.x-8,o.y-4); ctx.moveTo(o.x+o.w,o.y+4); ctx.lineTo(o.x+o.w+8,o.y-4); ctx.stroke();
-        ctx.fillStyle=PAPER; ctx.font='900 16px Anton,"Zen Kaku Gothic New",sans-serif'; ctx.textAlign='center'; ctx.textBaseline='middle'; ctx.fillText('!',o.x+o.w/2,o.y+o.h/2+1);
-      } else if(o.type==='bug'){
-        ctx.fillStyle=INK; ctx.beginPath(); ctx.ellipse(o.x+o.w/2,o.y+o.h/2,o.w/2,o.h/2,0,0,6.283); ctx.fill();
-        ctx.strokeStyle=INK; ctx.lineWidth=2;
-        for(var g=-1;g<=1;g++){ ctx.beginPath(); ctx.moveTo(o.x+o.w/2+g*6,o.y+o.h-2); ctx.lineTo(o.x+o.w/2+g*10,o.y+o.h+7); ctx.stroke(); }
-        ctx.fillStyle='#fff'; ctx.beginPath(); ctx.arc(o.x+o.w*0.38,o.y+o.h*0.4,2.4,0,6.283); ctx.arc(o.x+o.w*0.62,o.y+o.h*0.4,2.4,0,6.283); ctx.fill();
-      } else {
-        ctx.fillStyle=(o.type==='wall')?INK:PAPER; ctx.strokeStyle=INK; ctx.lineWidth=3; rr(o.x,o.y,o.w,o.h,4); ctx.fill(); ctx.stroke();
-        if(o.type==='wall'){ ctx.strokeStyle='rgba(243,236,221,0.5)'; ctx.lineWidth=2; for(var yy=o.y+6; yy<o.y+o.h-4; yy+=8){ ctx.beginPath(); ctx.moveTo(o.x+4,yy); ctx.lineTo(o.x+o.w-4,yy); ctx.stroke(); } }
-      }
-      drawTag(o.label, o.x+o.w/2, o.y);
+    for(var i=0;i<obstacles.length;i++){var o=obstacles[i];
+      ctx.save();if(o.hit)ctx.globalAlpha=.45;
+      drawMonument(o.type,o.x,o.y,o.w,o.h,o.type==='louvre'?'#b3cec8':o.type==='cathedral'?'#d29b8c':'#edc8a0');
+      ctx.font='700 '+(14/VIEW)+'px sans-serif';ctx.textAlign='center';ctx.textBaseline='middle';
+      var tw=ctx.measureText(o.label).width+20/VIEW;ctx.fillStyle=PAPER;ctx.strokeStyle=INK;ctx.lineWidth=1/VIEW;
+      rr(o.x+o.w/2-tw/2,o.y-36/VIEW,tw,26/VIEW,4/VIEW);ctx.fill();ctx.stroke();ctx.fillStyle=INK;ctx.fillText(o.label,o.x+o.w/2,o.y-23/VIEW);
+      ctx.restore();
     }
   }
   function drawTokens(){
-    for(var i=0;i<tokens.length;i++){ var t=tokens[i]; var by=t.y+Math.sin(t.t*4)*3; var bx=t.x-t.w/2, ty=by-t.h/2;
-      ctx.fillStyle=PAPER; ctx.strokeStyle=INK; ctx.lineWidth=3; rr(bx,ty,t.w,t.h,t.h/2); ctx.fill(); ctx.stroke();
-      ctx.strokeStyle=RED; ctx.lineWidth=2; rr(bx+3.5,ty+3.5,t.w-7,t.h-7,(t.h-7)/2); ctx.stroke();
-      ctx.fillStyle=INK; ctx.font='900 13px "Zen Kaku Gothic New",sans-serif'; ctx.textAlign='center'; ctx.textBaseline='middle'; ctx.fillText(t.label,t.x,by+0.5);
+    for(var i=0;i<tokens.length;i++){ var t=tokens[i]; var by=t.y; var bx=t.x-t.w/2, ty=by-t.h/2;
+      ctx.fillStyle='rgba(255,224,147,.15)';ctx.beginPath();ctx.ellipse(t.x,by,t.w*.7,24,0,0,Math.PI*2);ctx.fill();
+      ctx.fillStyle=GOLD; ctx.strokeStyle='#755550'; ctx.lineWidth=1.5; rr(bx,ty,t.w,t.h,7); ctx.fill(); ctx.stroke();
+      ctx.fillStyle=INK; ctx.font='700 '+(15/VIEW)+'px sans-serif'; ctx.textAlign='center'; ctx.textBaseline='middle'; ctx.fillText(t.label,t.x,by+0.5);
     }
   }
   function drawParticles(){ for(var i=0;i<parts.length;i++){ var p=parts[i]; ctx.globalAlpha=Math.max(0,Math.min(1,p.life*2)); ctx.fillStyle=p.c; ctx.fillRect(p.x,p.y,p.s,p.s);} ctx.globalAlpha=1; }
@@ -1060,29 +1315,47 @@ section,header,footer{position:relative;z-index:1}
       ctx.font='700 18px "Zen Kaku Gothic New",sans-serif'; ctx.strokeText(f.txt,f.x,f.y); ctx.fillText(f.txt,f.x,f.y);} ctx.globalAlpha=1;
   }
   function drawHUD(){
-    ctx.fillStyle=INK; ctx.font='900 12px "Zen Kaku Gothic New",sans-serif'; ctx.textAlign='left'; ctx.textBaseline='middle'; ctx.fillText('UPTIME',18,22);
-    var bw=180,bx=76,by=15;
-    ctx.strokeStyle=INK; ctx.lineWidth=3; ctx.strokeRect(bx,by,bw,15);
-    var lowBlink=(uptime<30 && Math.floor(gameT*6)%2===0);
-    ctx.fillStyle=lowBlink?PAPER:RED; ctx.fillRect(bx+2,by+2,(bw-4)*Math.max(0,uptime)/100,11);
-    ctx.fillStyle=INK; ctx.textAlign='right'; ctx.fillText(Math.ceil(uptime)+'%',bx+bw+34,22);
-    ctx.textAlign='left'; ctx.font='900 22px Anton,"Zen Kaku Gothic New",sans-serif';
-    ctx.fillStyle=INK; ctx.fillText(Math.floor(score),18,54);
-    ctx.font='900 11px "Zen Kaku Gothic New",sans-serif'; ctx.fillStyle=GRAY; ctx.fillText('BEST '+best,18,72);
-    ctx.textAlign='center'; ctx.font='900 12px "Zen Kaku Gothic New",sans-serif'; ctx.fillStyle=INK; ctx.fillText(lastChapter, W/2, 22);
+    if(state==='ready') return;
+    ctx.save();ctx.setTransform(DPR,0,0,DPR,0,0);
+    var width=W*VIEW,compact=width<720,bx=20,by=compact?78:22,bw=compact?width-40:254;
+    ctx.fillStyle='rgba(255,244,223,.93)';rr(bx,by,bw,65,5);ctx.fill();
+    ctx.fillStyle=INK;ctx.textAlign='left';ctx.textBaseline='middle';ctx.font='700 12px sans-serif';ctx.fillText('SYSTEM UPTIME',bx+13,by+17);
+    ctx.textAlign='right';ctx.fillText(Math.ceil(uptime)+'%',bx+bw-13,by+17);
+    ctx.fillStyle='#ddcbbb';rr(bx+13,by+30,bw-26,5,2);ctx.fill();
+    ctx.fillStyle=uptime<30?RED:'#42877e';rr(bx+13,by+30,Math.max(1,(bw-26)*uptime/100),5,2);ctx.fill();
+    ctx.textAlign='left';ctx.font='12px sans-serif';ctx.fillStyle='#615461';ctx.fillText(Math.floor(score)+' PTS   /   '+collected+' TECH',bx+13,by+50);
+    ctx.textAlign='right';ctx.fillText('BEST '+best,bx+bw-13,by+50);
+    var routeW=compact?width-40:Math.min(330,width-560),routeX=compact?20:width/2-routeW/2,routeY=compact?172:47;
+    ctx.strokeStyle='#8f7789';ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(routeX,routeY);ctx.lineTo(routeX+routeW,routeY);ctx.stroke();
+    var years=['2015','2016','2017','2020 →'];ctx.font='12px sans-serif';
+    years.forEach(function(year,i){var x=routeX+i*routeW/3;ctx.fillStyle=i<=arcIndex?INK:'#e6c3b5';ctx.beginPath();ctx.arc(x,routeY,i===arcIndex?5:3,0,Math.PI*2);ctx.fill();ctx.textAlign=i===0?'left':i===3?'right':'center';ctx.fillStyle=INK;ctx.fillText(year,x,routeY-14);});
+    ctx.textAlign='center';ctx.font='700 12px sans-serif';ctx.fillStyle=INK;ctx.fillText(lastChapter,routeX+routeW/2,routeY+20);
+    ctx.restore();
+  }
+  function drawLandmarkGuide(){
+    if(state!=='play'||banner) return;
+    var next=obstacles.find(function(o){return !o.hit&&o.x+o.w>=hero.x;});
+    var upcoming=next||GROUND_OBS[lastLandmark];
+    if(!upcoming) return;
+    ctx.save();ctx.setTransform(DPR,0,0,DPR,0,0);
+    var width=W*VIEW,x=20,y=width<720?218:105,bw=width<720?width-40:290;
+    ctx.fillStyle=PAPER;ctx.strokeStyle='#b69b92';ctx.lineWidth=1;rr(x,y,bw,108,6);ctx.fill();ctx.stroke();
+    var scale=Math.min(64/upcoming.w,84/upcoming.h),mw=upcoming.w*scale,mh=upcoming.h*scale;
+    drawMonument(upcoming.type,x+42-mw/2,y+94-mh,mw,mh,upcoming.type==='louvre'?'#b3cec8':'#edc8a0');
+    ctx.textAlign='left';ctx.textBaseline='middle';ctx.fillStyle='#79616d';ctx.font='700 11px sans-serif';ctx.fillText(next?'NEXT LANDMARK':'PARIS LANDMARK',x+85,y+23);
+    ctx.fillStyle=INK;ctx.font='700 14px sans-serif';ctx.fillText(upcoming.label,x+85,y+46);
+    ctx.font='12px sans-serif';ctx.fillText(lastTech?'Collected: '+lastTech:'Double-jump to clear it',x+85,y+74);
+    ctx.restore();
   }
   function drawBanner(){
     var b=banner, ms=b.ms;
-    var slide = b.life>2.5 ? (3.1-b.life)/0.6 : (b.life<0.5 ? b.life/0.5 : 1);
-    slide=Math.max(0,Math.min(1,slide));
-    var h=64, y=70, cx=W/2;
-    ctx.save(); ctx.globalAlpha=slide;
-    ctx.fillStyle=INK; ctx.fillRect(0,y,W,h);
-    ctx.fillStyle=RED; ctx.fillRect(0,y,W,5); ctx.fillRect(0,y+h-5,W,5);
-    ctx.fillStyle=GOLD; ctx.textAlign='center'; ctx.textBaseline='middle';
-    ctx.font='900 16px "Zen Kaku Gothic New",sans-serif'; ctx.fillText(ms.no, cx, y+18);
-    ctx.fillStyle=PAPER; ctx.font='900 22px Anton,"Zen Kaku Gothic New",sans-serif'; ctx.fillText(ms.t, cx, y+36);
-    ctx.fillStyle='rgba(243,236,221,0.75)'; ctx.font='700 12px "Zen Kaku Gothic New",sans-serif'; ctx.fillText(ms.org, cx, y+52);
+    var slide=Math.min(1,b.life/.5,(4-b.life)/.35);
+    ctx.save();ctx.setTransform(DPR,0,0,DPR,0,0);ctx.globalAlpha=Math.max(0,slide);
+    var width=W*VIEW,bw=Math.min(width-40,460),x=(width-bw)/2,y=width<720?218:112;
+    ctx.fillStyle=INK;rr(x,y,bw,92,4);ctx.fill();ctx.fillStyle=GOLD;ctx.fillRect(x,y,3,92);
+    ctx.textAlign='center';ctx.textBaseline='middle';ctx.font='700 9px sans-serif';ctx.fillText(ms.no,width/2,y+19);
+    ctx.fillStyle=PAPER;ctx.font='400 '+(width<420?17:22)+'px Anton, sans-serif';ctx.fillText(ms.t,width/2,y+43,bw-24);
+    ctx.fillStyle='#d6bcc0';ctx.font='11px sans-serif';ctx.fillText(ms.detail||ms.org,width/2,y+69,bw-24);
     ctx.restore();
   }
 
@@ -1091,17 +1364,34 @@ section,header,footer{position:relative;z-index:1}
     ctx.setTransform(DPR*VIEW,0,0,DPR*VIEW,0,0); ctx.save(); ctx.translate(sx,sy);
     drawBackground(); drawGround(); drawObstacles(); drawTokens(); drawHero(); drawParticles(); drawFloaters();
     ctx.restore();
-    if(hitFlash>0){ ctx.fillStyle='rgba(224,35,27,'+(hitFlash*0.5)+')'; ctx.fillRect(0,0,W,H); }
-    drawHUD(); if(banner) drawBanner();
+    if(hitFlash>0&&!reducedMotion){ ctx.fillStyle='rgba(195,79,64,'+(hitFlash*0.12)+')'; ctx.fillRect(0,0,W,H); }
+    drawHUD(); if(banner) drawBanner(); else drawLandmarkGuide();
   }
   function stepFX(dt){
     for(var i=parts.length-1;i>=0;i--){ var P=parts[i]; P.life-=dt; if(P.life<=0){parts.splice(i,1);continue;} P.x+=P.vx*dt; P.y+=P.vy*dt; P.vy+=650*dt; }
     for(i=floaters.length-1;i>=0;i--){ var F=floaters[i]; F.life-=dt; F.y-=44*dt; if(F.life<=0) floaters.splice(i,1); }
   }
-  function loop(ts){ raf=requestAnimationFrame(loop); if(!last) last=ts; var dt=Math.min(0.045,(ts-last)/1000); last=ts; if(state==='play') update(dt); else if(state==='over'||state==='win') stepFX(dt); if(state!=='ready'||hero) draw(); }
+  function playStep(dt){
+    // Keep full arcade pace, with a little extra reaction time on narrow screens.
+    var pace=W<600?.8:1,remaining=Math.min(.05,dt)*pace;
+    // Small physics steps prevent missed collisions on a slower display.
+    while(remaining>0.000001&&state==='play'){var step=Math.min(1/120,remaining);update(step);remaining-=step;}
+  }
+  function loop(ts){ raf=requestAnimationFrame(loop); if(!last) last=ts; var dt=Math.min(0.05,(ts-last)/1000); last=ts; if(state==='play') playStep(dt); else if(state==='over'||state==='win') stepFX(dt); overlay.dataset.state=state; if(state!=='ready'||hero) draw(); }
 
   window.addEventListener('keydown',function(e){
     if(!overlay.classList.contains('on')) return;
+    if(e.code==='Tab'){
+      var focusable=Array.prototype.filter.call(overlay.querySelectorAll('button'),function(b){return b.getClientRects().length>0;});
+      var first=focusable[0],end=focusable[focusable.length-1];
+      if(!overlay.contains(document.activeElement)){e.preventDefault();(e.shiftKey?end:first).focus();}
+      else if(e.shiftKey&&document.activeElement===first){e.preventDefault();end.focus();}
+      else if(!e.shiftKey&&document.activeElement===end){e.preventDefault();first.focus();}
+      return;
+    }
+    if(e.code==='Escape'){e.preventDefault();closeGame();return;}
+    if(e.target.tagName==='BUTTON'&&(e.code==='Space'||e.code==='Enter')) return;
+    if(e.repeat) return;
     if(e.code==='Space'||e.code==='ArrowUp'||e.code==='KeyW'){ e.preventDefault(); if(state==='play') jump(); else if(state==='ready'||state==='over'||state==='win') startRun(); }
     else if(e.code==='KeyP'){ e.preventDefault(); if(state==='play') pause(); else if(state==='paused') resume(); }
     else if(e.code==='KeyR'){ e.preventDefault(); startRun(); }
@@ -1112,16 +1402,19 @@ section,header,footer{position:relative;z-index:1}
   function bind(id,fn){ var el=document.getElementById(id); if(el) el.addEventListener('click',function(e){ fn(e); if(el.blur) el.blur(); }); }
   bind('playCover',openGame); bind('playNav',openGame);
   bind('gExit',closeGame); bind('gExit2',closeGame); bind('gExit3',closeGame);
+  bind('gPauseBtn',pause);
   bind('gStart',startRun); bind('gRetry',startRun); bind('gAgain',startRun); bind('gResume',resume);
   bind('gShare',shareScore);
   var diffBtns=document.querySelectorAll('#diffSel .dbtn');
   Array.prototype.forEach.call(diffBtns,function(btn){
     btn.addEventListener('click',function(){
       diff=btn.getAttribute('data-diff');
-      Array.prototype.forEach.call(diffBtns,function(b){ b.classList.toggle('active', b===btn); });
+      Array.prototype.forEach.call(diffBtns,function(b){ b.classList.toggle('active', b===btn);b.setAttribute('aria-pressed',String(b===btn)); });
       if(btn.blur) btn.blur();
     });
   });
+  document.addEventListener('visibilitychange',function(){if(document.hidden)pause();last=0;});
+  window.addEventListener('blur',pause);
 })();
 </script>
 </body>

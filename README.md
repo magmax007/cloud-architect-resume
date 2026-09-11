@@ -5,9 +5,15 @@ An interactive, shonen-manga styled résumé for **Magnim Maxime AWILI** — Tec
 **Live:** https://magmax.space
 
 ## Features
-- Manga-styled scrollable résumé (cover, character sheet, skill gauges, career "story arcs", training arc, side quests)
+- Illustrated manga cover, three-panel opening sequence, character sheet, signature techniques, career chapters, training arc, and side quests.
 - **Recruiter Mode** toggle for a clean, printable version
-- **Zero Downtime** — a playable endless-runner mini-game (keep your uptime above 0%!)
-- Self-contained single HTML file, no build step
+- **Zero Downtime: Paris Run** — an illustrated rooftop runner with a sunset skyline, a red-scarf architect, and French landmark obstacles: Eiffel Tower, Arc de Triomphe, Louvre pyramid, Sacré-Cœur, and Strasbourg Cathedral.
+- Play through real career checkpoints from Société Générale to Transactis. Collect the technologies of each chapter to earn points and restore uptime, then unlock endless Paris.
+- Three difficulty levels, double jumps, keyboard/touch controls, pause, and a locally saved personal best.
+- Static HTML/CSS/JavaScript with local cover artwork in `assets/`; no build step.
 
 Just open `index.html` in any modern browser.
+
+The cover uses a manga architect avatar based on Maxime's description: West African, bald, bearded, and wearing glasses, with ink, screentone, a red scarf, and Strasbourg-inspired rooftops. The optimized WebP is approximately 619 KB; the original artwork, edited PNG, and generation prompts are retained in `assets/`.
+
+Game controls: **Space / ↑ / W / tap** to jump, again in the air to double-jump, **P** to pause, **R** to restart, and **Esc** to return to the résumé. The game also pauses when the browser loses focus. All game artwork is drawn directly on canvas; no extra assets or dependencies are needed.
